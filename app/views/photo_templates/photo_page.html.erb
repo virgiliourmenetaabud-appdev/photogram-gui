@@ -14,7 +14,11 @@
 
 <dt> Edit photo </dt>
 <dd>
-
+<form action="/update_photo/<%= @pic_id.id%>">
+<label for="edit_image">Image</label> <input id="edit_image" name="input_image_edit" value="<%=@pic_id.image%>"> </input>
+<label for="edit_caption">Caption</label> <textarea id="edit_caption" name="input_caption_edit" value="<%=@pic_id.caption%>"> </textarea>
+<button> Update photo </button>
+</form>
 </dd>
 
 <dt> Delete photo </dt>
@@ -44,3 +48,10 @@
 </table>
 
 <h3>Add a new comment</h3>
+
+<form action="/new_comment/<%= @pic_id.id%>">
+<label for="photo_id">Photo ID</label> <input id="photo_id" name="photo_for_new_comment" value="<%= @pic_id.id %>"> </input>
+<label for="author_id">Author ID</label> <input id="author_id" name="author_for_new_comment"> </input>
+<label for="new_comment">Comment</label> <textarea id="new_comment" name="new_comment_text"> </textarea>
+<button>Add comment</button>
+</form>
