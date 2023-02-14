@@ -1,0 +1,46 @@
+<h1>Photo Details</h1>
+
+<dt> Image </dt>
+<dd> <img src="<%= @pic_id.image %>"> </dd>
+
+<dt> Caption </dt>
+<dd> <%= @pic_id.caption %> </dd>
+
+<dt> Owner </dt>
+<dd> <%= @pic_id.poster.username %> </dd>
+
+<dt> Posted </dt>
+<dd> <%= @pic_id.created_at %> </dd>
+
+<dt> Edit photo </dt>
+<dd>
+
+</dd>
+
+<dt> Delete photo </dt>
+<dd> 
+<a href="/delete_photo/<%= @pic_id.id %>"> Delete this photo <a>
+</dd>
+
+<h2> Comments </h2>
+<table>
+  <tr>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th>Posted</th>
+    <th>Photo ID</th>
+  </tr>
+
+
+  <% @list_of_comments.each do |comment| %>
+    <tr>
+      <td> <%= comment.commenter.username %> </td>
+      <td> <%= comment.body %> </td>
+      <td> <%= comment.created_at %> </td>
+      <td> <%= comment.photo_id %> </td>
+    </tr>
+  <% end %>
+
+</table>
+
+<h3>Add a new comment</h3>
